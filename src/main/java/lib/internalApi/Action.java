@@ -1,19 +1,31 @@
 package lib.internalApi;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import lib.lambdas.IEventLambda;
 
-public class Action<T> implements IAction {
+public final class Action<T> implements IAction {
 
-    private T target;
+    private ArrayList<T> target;
 
     private IEventLambda<T> event;
 
     public Action(IEventLambda<T> e, T t) {
-        event = e; target = t;
+        target = new ArrayList<T>();
+        event = e; 
+        target.set(0, t);
+    }
+
+    public Action(IEventLambda<T> e, T[] t) {
+        target = new ArrayList<T>(Arrays.asList(t));
+        event = e;
     }
 
     @Override
     public void apply() {
-        event.action(target);
+        for (T object : target) {
+            event.action(object);
+        }
     }
 }
