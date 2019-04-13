@@ -22,6 +22,11 @@ public final class Action<T> implements IAction {
         event = e;
     }
 
+    public Action(IEventLambda<T> e, ArrayList<T> t) {
+        target = t;
+        event = e;
+    }
+    
     @Override
     public void apply() {
         for (T object : target) {
