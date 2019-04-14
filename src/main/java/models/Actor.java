@@ -1,6 +1,7 @@
 package models;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 import environment.IWorld;
 import models.Item;
@@ -35,4 +36,5 @@ public abstract class Actor extends PhysicalInstance implements Serializable  {
         return sendDeletionRequest(i);
     }
 
+    public abstract Optional<Item> pickUp();
 }

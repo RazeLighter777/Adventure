@@ -12,11 +12,12 @@ public interface IWorld extends Serializable {
 
     public Actor[] getActorsAtPosition(Position p);
 
-    public Room[] getRoomsInDirection(Actor caller, Position p);
+    public Room[] getRoomsInBetween(Position p, Position q);
 
     public void sendDeletionRequest(Actor a);
 
     public void createActor(Actor a);
 
+    public void update();
 
 }

@@ -1,7 +1,9 @@
 package lib.internalApi;
 
-import java.awt.Point;
+
 import environment.*;
+import lib.internalApi.Point;
+
 public class Position {
 
     private Room room;

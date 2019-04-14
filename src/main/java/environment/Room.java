@@ -1,9 +1,9 @@
 package environment;
 
-import java.awt.Point;
 import java.io.Serializable;
 
 import lib.internalApi.IInstance;
+import lib.internalApi.Point;
 
 public abstract class Room implements IInstance, Serializable {
     
