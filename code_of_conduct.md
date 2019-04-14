@@ -1,4 +1,4 @@
-#Code of Conduct
+# Code of Conduct
     
     In the first place to love the Lord God with the whole heart, the whole soul, the whole strength...
     Then, one's neighbor as one's self (cf Mt 22:37-39; Mk 12:30-31; Lk 10:27).
