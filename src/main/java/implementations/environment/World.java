@@ -3,12 +3,13 @@ package implementations.environment;
 import java.util.ArrayList;
 
 import environment.*;
-import lib.internalApi.Action;
 import models.*;
 import lib.internalApi.*;
 
 
 public abstract class World implements IWorld {
+
+    public static final long serialVersionUID = 1;
 
     private ArrayList<Actor> actors;
 
@@ -106,5 +107,11 @@ public abstract class World implements IWorld {
             actors.remove(a);
         }
     }
+
+    public void sendDeletionRequest(Actor a) {
+        deletionRequests.add(a);
+    }
+
+
 
 }

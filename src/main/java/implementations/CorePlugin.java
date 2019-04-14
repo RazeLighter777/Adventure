@@ -2,6 +2,7 @@ package implementations;
 
 import api.*;
 
-public final class CorePlugin  implements IPlugin {
+//Not going to be abstract.
+public abstract class CorePlugin  implements IPlugin {
 
 }
