@@ -1,10 +1,12 @@
 package lib.internalApi;
 
 
+import java.io.Serializable;
+
 import environment.*;
 import lib.internalApi.Point;
 
-public class Position {
+public class Position implements Serializable {
 
     private Room room;
     

@@ -7,7 +7,7 @@ import environment.IWorld;
 import models.Item;
 import lib.internalApi.*;
 
-public abstract class Actor extends PhysicalInstance implements Serializable  {
+public abstract class Actor extends PhysicalInstance implements Serializable {
 
     public static final long serialVersionUID = 1;
 
@@ -17,9 +17,12 @@ public abstract class Actor extends PhysicalInstance implements Serializable  {
         world = worldContext;
     }
 
+    /**
+     * 
+     * @return The position of the actor.
+     */
     public abstract Position getPosition();
 
-    public abstract Item[] getInventory();
     //API Functions
 
     public abstract void reposition(Position p);
@@ -36,5 +39,9 @@ public abstract class Actor extends PhysicalInstance implements Serializable  {
         return sendDeletionRequest(i);
     }
 
+    /**
+     * Picks up an item from an item container or item actor wrapper.
+     * @return An item if the thing was picked up correctly
+     */
     public abstract Optional<Item> pickUp();
 }

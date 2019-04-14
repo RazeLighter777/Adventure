@@ -1,5 +1,7 @@
 package lib.internalApi;
 
+import java.util.Optional;
+
 import lib.dataStructures.*;
 import models.Item;
 import models.Actor;
@@ -17,12 +19,34 @@ public abstract class PhysicalInstance implements IInstance {
 
     //API 
 
+
+    /**
+     * 
+     * @return an optional interface to an inventory.
+     */
+    public abstract Optional<IInventory> getInventory();
+
+    /**
+     * 
+     * @param attack The attack to be applied to the object
+     */
     public abstract void applyAttack(SAttack attack);
 
+    /**
+     * 
+     * @param attack The attack to be applied to the object
+     * @param origin The origin of the  attack
+     */
     public void applyAttack(SAttack attack, Actor origin) {
         applyAttack(attack);
     }
 
+    /**
+     * 
+     * @param attack The attack to be applied to the object.
+     * @param origin The origin of the attack.
+     * @param item The item used in the attack.
+     */
     public void applyAttack(SAttack attack, Actor origin, Item item) {
         applyAttack(attack, origin);
     }

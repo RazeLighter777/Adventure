@@ -18,19 +18,23 @@ public abstract class World implements IWorld {
 
     public static final long serialVersionUID = 1;
 
-    private Game game;
+    private transient Game game;
 
     private ArrayList<Actor> actors;
 
     private ArrayList<ArrayList<Room>> rooms;
 
-    private ArrayList<IAction> actionQueue;
+    private transient ArrayList<IAction> actionQueue;
 
-    private ArrayList<Actor> deletionRequests;
+    private transient ArrayList<Actor> deletionRequests;
 
     public World(Game g) {
-        game = g;
+        setGame(g);
         generateRooms();
+    }
+
+    public void setGame(Game g) {
+        game = g;
     }
 
     protected abstract void generateRooms();

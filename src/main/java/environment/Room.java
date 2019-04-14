@@ -37,4 +37,6 @@ public abstract class Room implements IInstance, Serializable {
         return mainSection.getEnvironment();
     }
 
+
+
 }
