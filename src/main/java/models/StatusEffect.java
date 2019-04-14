@@ -6,6 +6,8 @@ import lib.lambdas.IStatusLambda;
 
 public abstract class StatusEffect implements Serializable {
 
+    public static final long serialVersionUID = 1;
+
     private IStatusLambda action;
 
     public StatusEffect(IStatusLambda a) {

@@ -16,7 +16,7 @@ public class Point {
     }
 
     public int hashCode() {
-        return new Integer(x + "0" + y);
+        return Integer.parseInt("" + x + "0" + y);
     }
 
     public int getX() {

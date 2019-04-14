@@ -2,7 +2,6 @@ package core;
 
 import java.util.ArrayList;
 import java.util.logging.*;
-import java.util.Date;
 import java.util.Enumeration;
 import java.net.URLClassLoader;
 import java.util.jar.*;
@@ -12,18 +11,16 @@ import java.net.URL;
 
 import api.IPlugin;
 import org.json.*;
-import implementations.CorePlugin;
 
 public final class Game {
 
-    static Logger logger;
+    static Logger logger = App.logger;
 
     public ArrayList<IPlugin> plugins;
 
     public void beginGame(JSONObject options) {
         //plugins.add(new CorePlugin());
-        logger = logger.getLogger("Adventure-" + new Date() + ".log");
-
+        logger = App.logger;
         JSONArray ja = (JSONArray)options.get("plugins");
         for (int i = 0; i < ja.length(); i++) {
              if (loadPlugin(ja.getString(i))) {

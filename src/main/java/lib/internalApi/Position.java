@@ -8,6 +8,8 @@ import lib.internalApi.Point;
 
 public class Position implements Serializable {
 
+    public static final long serialVersionUID = 1;
+
     private Room room;
     
     private RoomSection section;
