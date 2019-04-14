@@ -1,7 +1,14 @@
 package implementations.environment;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
+import org.json.JSONObject;
+
+import api.IActorFactory;
+import api.IItemFactory;
+import api.IPlugin;
+import core.Game;
 import environment.*;
 import models.*;
 import lib.internalApi.*;
@@ -11,6 +18,8 @@ public abstract class World implements IWorld {
 
     public static final long serialVersionUID = 1;
 
+    private Game game;
+
     private ArrayList<Actor> actors;
 
     private ArrayList<ArrayList<Room>> rooms;
@@ -18,6 +27,11 @@ public abstract class World implements IWorld {
     private ArrayList<IAction> actionQueue;
 
     private ArrayList<Actor> deletionRequests;
+
+    public World(Game g) {
+        game = g;
+        generateRooms();
+    }
 
     protected abstract void generateRooms();
 
@@ -84,6 +98,28 @@ public abstract class World implements IWorld {
             }
         }
         actors.add(a);
+    }
+
+    public Optional<Actor> createActor(String factoryClassName, Position p, JSONObject j) {
+        for (IPlugin pl : game.plugins) {
+            if (factoryClassName.split(".")[0].equals(pl.getPluginName())) {
+                for (IActorFactory af : pl.loadActorFactories()) {
+                    return Optional.of(af.createActor(p, j));
+                }
+            }
+        }
+        return Optional.empty();
+    }
+
+    public Optional<Item> createItem(String factoryClassName, JSONObject j) {
+        for (IPlugin pl : game.plugins) {
+            if (factoryClassName.split(".")[0].equals(pl.getPluginName())) {
+                for (IItemFactory af : pl.loadItemFactories()) {
+                    return Optional.of(af.createItem(j));
+                }
+            }
+        }
+        return Optional.empty();
     }
 
     public void update() {
