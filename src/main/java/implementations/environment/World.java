@@ -12,6 +12,7 @@ import core.Game;
 import environment.*;
 import models.*;
 import lib.internalApi.*;
+import lib.lambdas.IWorldGenerationLambda;
 
 
 public abstract class World implements IWorld {
@@ -28,7 +29,10 @@ public abstract class World implements IWorld {
 
     private transient ArrayList<Actor> deletionRequests;
 
-    public World(Game g) {
+    private transient IWorldGenerationLambda worldGenerator;
+
+    public World(Game g, IWorldGenerationLambda gen) {
+        worldGenerator = gen;
         setGame(g);
         generateRooms();
     }
@@ -37,7 +41,9 @@ public abstract class World implements IWorld {
         game = g;
     }
 
-    protected abstract void generateRooms();
+    protected void generateRooms() {
+        worldGenerator.generateWorld(this, rooms);
+    }
 
     public Actor[] getActorsInRoom(Room m) {
         ArrayList<Actor> r = new ArrayList<Actor>();
