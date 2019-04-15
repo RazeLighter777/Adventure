@@ -1,5 +1,7 @@
 package api;
 
+import lib.lambdas.IWorldGenerationLambda;
+
 public interface IPlugin {
 
     String getPluginName();
@@ -9,6 +11,8 @@ public interface IPlugin {
     int getPluginVersion();
     
     void initializePlugin();
+
+    IWorldGenerationLambda[] getGenerationAlgorithms();
 
     IRoomFactory[] loadRoomFactories();
 
