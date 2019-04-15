@@ -15,7 +15,7 @@ import lib.internalApi.*;
 import lib.lambdas.IWorldGenerationLambda;
 
 
-public abstract class World implements IWorld {
+public  class World implements IWorld {
 
     public static final long serialVersionUID = 1;
 
@@ -65,7 +65,7 @@ public abstract class World implements IWorld {
         return r.toArray(new Actor[r.size()]);
     }    
 
-    public Room[] getRoomsInDirection(Position p, Position q) {
+    public Room[] getRoomsInBetween(Position p, Position q) {
         ArrayList<Room> r = new ArrayList<>();
         int x0 = p.getRoom().getPoint().getX();
         int y0 = p.getRoom().getPoint().getY();
