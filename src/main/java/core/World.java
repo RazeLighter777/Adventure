@@ -1,5 +1,6 @@
 package core;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -43,6 +44,19 @@ public  class World implements IWorld {
         deletionRequests = new ArrayList<>();
     }
 
+    /**
+     * We need this to initialize the transients to prevent null pointer exceptions.
+     * @param stream The normal serialization stream
+     * @throws IOException Probably if the stream is corrupted or missing some how
+     * @throws ClassNotFoundException I dunno. Probably if some plugin classes didn't load properly
+     */
+    private void readObject(java.io.ObjectInputStream stream)
+            throws IOException, ClassNotFoundException {
+        stream.defaultReadObject();
+        actors = new ArrayList<>();
+        actionQueue = new ArrayList<>();
+        deletionRequests = new ArrayList<>();
+    }
     @Override
     public String getWorldSeed() {
         return worldSeed;
@@ -135,7 +149,9 @@ public  class World implements IWorld {
         for (IPlugin pl : game.plugins) {
             if (factoryClassName.split(".")[0].equals(pl.getPluginName())) {
                 for (IActorFactory af : pl.loadActorFactories()) {
-                    return Optional.of(af.createActor(p, j));
+                    if (af.getBaseName().equals(factoryClassName.split(".")[1])) {
+                        return Optional.of(af.createActor(p, j));
+                    }
                 }
             }
         }
@@ -147,7 +163,9 @@ public  class World implements IWorld {
         for (IPlugin pl : game.plugins) {
             if (factoryClassName.split(".")[0].equals(pl.getPluginName())) {
                 for (IItemFactory af : pl.loadItemFactories()) {
-                    return Optional.of(af.createItem(j));
+                    if (af.getBaseName().equals(factoryClassName.split(".")[1])) {
+                        return Optional.of(af.createItem(j));
+                    }
                 }
             }
         }

@@ -43,6 +43,7 @@ public class Environment implements IEnvironment {
         return visibility;
     }
 
+    @Override
     public double getCover() {
         return cover;
     }

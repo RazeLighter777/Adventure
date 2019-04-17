@@ -4,6 +4,7 @@ public class Point {
     int x;
     int y;
 
+    @org.jetbrains.annotations.Contract(value = "null -> false", pure = true)
     public boolean equals(Object o) {
         Point c = (Point) o;
         return c.x == x && c.y == y;
