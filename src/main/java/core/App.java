@@ -1,10 +1,6 @@
 package core;
 
-import java.util.Date;
 import java.util.logging.Logger;
-
-
-import implementations.environment.World;
 
 /**
  * Hello world!

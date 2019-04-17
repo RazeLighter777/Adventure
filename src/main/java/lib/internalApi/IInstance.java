@@ -1,19 +1,21 @@
 package lib.internalApi;
 
+import java.util.Optional;
+
 public interface IInstance {
 
-    public abstract void update();
+    void update();
     
-    public abstract String getFullName();
+    String getFullName();
 
-    public abstract String getBaseName();
+    String getBaseName();
 
-    public abstract String getFactoryAssetId();
+    Optional<String> getFactoryAssetId();
 
-    public abstract String getGeneralDescription();
+    String getGeneralDescription();
 
-    public abstract String getDetailedDescription();
+    String getDetailedDescription();
 
-    public abstract void recieveDeletionRequest();
+    void receiveDeletionRequest();
     
 }

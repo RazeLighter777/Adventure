@@ -29,6 +29,7 @@ public abstract class Room implements IInstance, Serializable {
     public RoomSection[] getRoomSections() {
         return roomSections;
     }
+
     public RoomSection getMainSection() {
         return mainSection;
     }
