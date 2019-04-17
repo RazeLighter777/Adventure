@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 import environment.IWorld;
 import environment.Room;
+import lib.internalApi.Environment.Point;
 
 @FunctionalInterface
 public interface IWorldGenerationLambda {
-    void generateWorld(IWorld w, ArrayList<ArrayList<Room>> rooms);
+    Room generateRoom(IWorld w, Point p);
 }

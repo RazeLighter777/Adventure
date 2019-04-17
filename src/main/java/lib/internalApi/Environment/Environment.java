@@ -4,6 +4,8 @@ import environment.IEnvironment;
 
 public class Environment implements IEnvironment {
 
+    public static final long serialVersionUID = 1;
+
     protected double slip;
 
     protected double temp;

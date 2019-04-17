@@ -3,6 +3,7 @@ package core;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import lib.internalApi.Environment.Point;
 import lib.internalApi.Environment.Position;
 import lib.internalApi.Events.IAction;
 import org.json.JSONObject;
@@ -13,7 +14,7 @@ import api.IPlugin;
 import environment.*;
 import models.*;
 import lib.lambdas.IWorldGenerationLambda;
-
+import java.util.Hashtable;
 
 public  class World implements IWorld {
 
@@ -25,7 +26,7 @@ public  class World implements IWorld {
 
     private ArrayList<Actor> actors;
 
-    private ArrayList<ArrayList<Room>> rooms;
+    private Hashtable<Point, Room> rooms;
 
     private transient ArrayList<IAction> actionQueue;
 
@@ -36,9 +37,13 @@ public  class World implements IWorld {
     public World(Game g, IWorldGenerationLambda gen) {
         worldGenerator = gen;
         setGame(g);
-        generateRooms();
+        rooms = new Hashtable<>();
+        actors = new ArrayList<>();
+        actionQueue = new ArrayList<>();
+        deletionRequests = new ArrayList<>();
     }
 
+    @Override
     public String getWorldSeed() {
         return worldSeed;
     }
@@ -47,12 +52,17 @@ public  class World implements IWorld {
         game = g;
     }
 
-    protected void generateRooms() {
-        worldGenerator.generateWorld(this, rooms);
+    @Override
+    public Room getRoomAt(Point point) {
+        if (!rooms.contains(point)) {
+            rooms.put(point, worldGenerator.generateRoom(this, point));
+        }
+        return rooms.get(point);
     }
 
+    @Override
     public Actor[] getActorsInRoom(Room m) {
-        ArrayList<Actor> r = new ArrayList<Actor>();
+        ArrayList<Actor> r = new ArrayList<>();
         for (Actor a : actors) {
             if (a.getPosition().getRoom() == m) {
                 r.add(a);
@@ -61,6 +71,7 @@ public  class World implements IWorld {
         return r.toArray(new Actor[r.size()]);
     }    
 
+    @Override
     public Actor[] getActorsAtPosition(Position p) {
         ArrayList<Actor> r = new ArrayList<>();
         for (Actor a : actors) {
@@ -71,6 +82,7 @@ public  class World implements IWorld {
         return r.toArray(new Actor[r.size()]);
     }    
 
+    @Override
     public Room[] getRoomsInBetween(Position p, Position q) {
         ArrayList<Room> r = new ArrayList<>();
         int x0 = p.getRoom().getPoint().getX();
@@ -85,8 +97,8 @@ public  class World implements IWorld {
         int e2;
         while (true) 
         {
-            r.add(rooms.get(x0).get(y0));
-            if (x0 == x1 && y0 == y1) 
+            r.add(getRoomAt(new Point(x0, y0)));
+            if (x0 == x1 && y0 == y1)
                 break;
             e2 = 2 * err;
             if (e2 > -dy) 
@@ -103,10 +115,12 @@ public  class World implements IWorld {
         return r.toArray(new Room[r.size()]);
     }
 
+    @Override
     public void submitAction(IAction a) {
         actionQueue.add(a);
     }
 
+    @Override
     public void createActor(Actor a) {
         for (Actor actor : actors) {
             if (actor == a) {
@@ -116,6 +130,7 @@ public  class World implements IWorld {
         actors.add(a);
     }
 
+    @Override
     public Optional<Actor> createActor(String factoryClassName, Position p, JSONObject j) {
         for (IPlugin pl : game.plugins) {
             if (factoryClassName.split(".")[0].equals(pl.getPluginName())) {
@@ -127,6 +142,7 @@ public  class World implements IWorld {
         return Optional.empty();
     }
 
+    @Override
     public Optional<Item> createItem(String factoryClassName, JSONObject j) {
         for (IPlugin pl : game.plugins) {
             if (factoryClassName.split(".")[0].equals(pl.getPluginName())) {
@@ -138,6 +154,7 @@ public  class World implements IWorld {
         return Optional.empty();
     }
 
+    @Override
     public void update() {
         //update the actors
         for (Actor i : actors) {
@@ -149,10 +166,8 @@ public  class World implements IWorld {
         }
         actionQueue.clear();
         //update the rooms
-        for (ArrayList<Room> r : rooms) {
-            for (Room c : r) {
-                c.update();
-            }
+        for (Room r : rooms.values()) {
+            r.update();
         }
         //process deletion requests.
         for (Actor a : deletionRequests) {
@@ -160,6 +175,7 @@ public  class World implements IWorld {
         }
     }
 
+    @Override
     public void sendDeletionRequest(Actor a) {
         deletionRequests.add(a);
     }

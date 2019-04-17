@@ -19,7 +19,7 @@ public abstract class Room implements IInstance, Serializable {
     //This marks the default room environment that the sections can access.
     protected IEnvironment roomEnvironment;
 
-    protected boolean enterable;
+    protected boolean solid;
 
     private Point point;
 
@@ -44,7 +44,7 @@ public abstract class Room implements IInstance, Serializable {
     }
 
     public boolean isSolid() {
-        return enterable;
+        return solid;
     }
 
 
