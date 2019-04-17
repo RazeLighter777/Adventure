@@ -2,8 +2,8 @@ package environment;
 
 import java.io.Serializable;
 
-import lib.internalApi.IInstance;
-import lib.internalApi.Point;
+import lib.internalApi.Instance.IInstance;
+import lib.internalApi.Environment.Point;
 
 public abstract class Room implements IInstance, Serializable {
     
@@ -15,6 +15,11 @@ public abstract class Room implements IInstance, Serializable {
     protected RoomSection mainSection;
     
     protected RoomSection[] roomSections;
+
+    //This marks the default room environment that the sections can access.
+    protected IEnvironment roomEnvironment;
+
+    protected boolean enterable;
 
     private Point point;
 
@@ -35,7 +40,11 @@ public abstract class Room implements IInstance, Serializable {
     }
 
     public IEnvironment getEnvironment() {
-        return mainSection.getEnvironment();
+        return roomEnvironment;
+    }
+
+    public boolean isSolid() {
+        return enterable;
     }
 
 

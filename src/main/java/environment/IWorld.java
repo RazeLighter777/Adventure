@@ -3,14 +3,17 @@ package environment;
 import java.io.Serializable;
 import java.util.Optional;
 
+import lib.internalApi.Environment.Position;
+import lib.internalApi.Events.IAction;
 import org.json.JSONObject;
 
-import lib.internalApi.*;
 import models.*;
 
 public interface IWorld extends Serializable {
     
     public void submitAction(IAction a);
+
+    public String getWorldSeed();
 
     public Actor[] getActorsInRoom(Room m);
 

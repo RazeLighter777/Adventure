@@ -1,4 +1,4 @@
-package lib.internalApi;
+package lib.internalApi.Environment;
 
 public class Point {
     int x;

@@ -1,4 +1,6 @@
-package lib.internalApi;
+package lib.internalApi.Environment;
+
+import lib.internalApi.Environment.Position;
 
 import java.io.Serializable;
 

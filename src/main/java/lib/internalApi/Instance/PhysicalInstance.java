@@ -1,11 +1,12 @@
-package lib.internalApi;
+package lib.internalApi.Instance;
 
 import java.util.Optional;
 
 import lib.dataStructures.*;
+import lib.internalApi.Instance.IInventory;
 import models.Item;
 import models.Actor;
-import lib.internalApi.IInstance;
+import lib.internalApi.Instance.IInstance;
 
 public abstract class PhysicalInstance implements IInstance {
 

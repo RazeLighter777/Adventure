@@ -3,15 +3,15 @@ package core;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import lib.internalApi.Environment.Position;
+import lib.internalApi.Events.IAction;
 import org.json.JSONObject;
 
 import api.IActorFactory;
 import api.IItemFactory;
 import api.IPlugin;
-import core.Game;
 import environment.*;
 import models.*;
-import lib.internalApi.*;
 import lib.lambdas.IWorldGenerationLambda;
 
 
@@ -20,6 +20,8 @@ public  class World implements IWorld {
     public static final long serialVersionUID = 1;
 
     private transient Game game;
+
+    private String worldSeed;
 
     private ArrayList<Actor> actors;
 
@@ -35,6 +37,10 @@ public  class World implements IWorld {
         worldGenerator = gen;
         setGame(g);
         generateRooms();
+    }
+
+    public String getWorldSeed() {
+        return worldSeed;
     }
 
     public void setGame(Game g) {

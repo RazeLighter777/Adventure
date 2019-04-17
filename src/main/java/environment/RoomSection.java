@@ -3,8 +3,8 @@ package environment;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import lib.internalApi.Position;
-import lib.internalApi.SectionLink;
+import lib.internalApi.Environment.Position;
+import lib.internalApi.Environment.SectionLink;
 public abstract class RoomSection implements Serializable {
 
     public static final long serialVersionUID = 1;
@@ -39,6 +39,12 @@ public abstract class RoomSection implements Serializable {
      *  
      * @return An arraylist of links to other positions.
      */
-    public abstract ArrayList<SectionLink> getLinks();
+    public abstract SectionLink[] getLinks();
+
+    /**
+     *
+     * @return Whether the section can be entered or not.
+     */
+    public abstract boolean isSolid();
     
 }

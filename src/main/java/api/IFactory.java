@@ -1,6 +1,6 @@
 package api;
 
-import lib.internalApi.IInstance;
+import lib.internalApi.Instance.IInstance;
 
 public interface IFactory {
 

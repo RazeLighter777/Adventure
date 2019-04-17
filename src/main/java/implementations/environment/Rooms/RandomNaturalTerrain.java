@@ -1,12 +1,14 @@
 package implementations.environment.Rooms;
 
 
+import environment.RoomSection;
 import org.json.JSONObject;
 
 import environment.IWorld;
 import environment.Room;
-import lib.internalApi.Point;
+import lib.internalApi.Environment.Point;
 
+import java.io.Serializable;
 import java.util.Optional;
 
 public class RandomNaturalTerrain extends Room {
@@ -23,9 +25,12 @@ public class RandomNaturalTerrain extends Room {
         DESERT, SNOW, SWAMP, PLAIN, HILL
     }
 
-    private TerrainType terrainType;
 
-    private static class TerrainDescriptor {
+    private TerrainDescriptor terrainDescriptor;
+
+    private static class TerrainDescriptor implements Serializable {
+
+        public static final long serialVersionUID = 1;
 
         public TerrainType type;
 
@@ -43,7 +48,8 @@ public class RandomNaturalTerrain extends Room {
 
     public RandomNaturalTerrain(IWorld w, Point p, JSONObject json) {
         super(w, p);
-        terrainType = terrains[p.hashCode() % terrains.length].type;
+        //Change this to the random world generator
+        terrainDescriptor= terrains[(w.getWorldSeed().hashCode() + p.hashCode()) % terrains.length];
     }
 
     public void update() {
@@ -51,7 +57,7 @@ public class RandomNaturalTerrain extends Room {
     }
 
     public String getFullName() {
-        return "Natural" + terrainType.toString();
+        return "Natural" + terrainDescriptor.type.toString();
     }
 
     public String getBaseName() {
@@ -63,21 +69,11 @@ public class RandomNaturalTerrain extends Room {
     }
 
     public String getGeneralDescription() {
-        for (TerrainDescriptor td : terrains) {
-            if (td.equals(terrainType)) {
-                return td.genD;
-            }
-        }
-        return "";
+        return terrainDescriptor.genD;
     }
 
     public String getDetailedDescription() {
-        for (TerrainDescriptor td : terrains) {
-            if (td.equals(terrainType)) {
-                return td.detD;
-            }
-        }
-        return "";
+        return terrainDescriptor.detD;
     }
 
     public void receiveDeletionRequest () {

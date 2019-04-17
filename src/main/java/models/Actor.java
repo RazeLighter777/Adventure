@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Optional;
 
 import environment.IWorld;
-import models.Item;
-import lib.internalApi.*;
+import lib.internalApi.Environment.Position;
+import lib.internalApi.Instance.PhysicalInstance;
 
 public abstract class Actor extends PhysicalInstance implements Serializable {
 

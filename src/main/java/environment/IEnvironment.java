@@ -7,4 +7,6 @@ public interface IEnvironment {
     public double getTemperature();
 
     public double getVisibility();
+
+    public double getCover();
 }
