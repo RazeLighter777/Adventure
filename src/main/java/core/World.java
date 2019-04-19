@@ -135,7 +135,7 @@ public  class World implements IWorld {
     }
 
     @Override
-    public void createActor(Actor a) {
+    public void addActor(Actor a) {
         for (Actor actor : actors) {
             if (actor == a) {
                 return;
@@ -145,7 +145,7 @@ public  class World implements IWorld {
     }
 
     @Override
-    public Optional<Actor> createActor(String factoryClassName, Position p, JSONObject j) {
+    public Optional<Actor> addActor(String factoryClassName, Position p, JSONObject j) {
         for (IPlugin pl : game.plugins) {
             if (factoryClassName.split(".")[0].equals(pl.getPluginName())) {
                 for (IActorFactory af : pl.loadActorFactories()) {

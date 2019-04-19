@@ -63,22 +63,22 @@ public interface IWorld extends Serializable {
      *
      * @param a Creates an actor at a given location on the map
      */
-    void createActor(Actor a);
+    void addActor(Actor a);
 
     /**
      * Creates an actor with a plugin
      * @param factoryClassName The name of the actor as in the factory.actor format.
      * @param p The position to create the actor at
      * @param j A JSON String containing any parameters for the actor
-     * @return
+     * @return An optional actor if it was successfully created
      */
-    Optional<Actor> createActor(String factoryClassName, Position p, JSONObject j);
+    Optional<Actor> addActor(String factoryClassName, Position p, JSONObject j);
 
     /**
      * Creates an item with a plugin
      * @param factoryClassName The name of the item as in the factory.item format.
      * @param j A JSON String containing any parameters for the item.
-     * @return
+     * @return returns an item if is was successfully created.
      */
     Optional<Item> createItem(String factoryClassName, JSONObject j);
 

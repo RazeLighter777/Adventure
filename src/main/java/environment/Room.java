@@ -43,8 +43,12 @@ public abstract class Room implements IInstance, Serializable {
         return roomEnvironment;
     }
 
-    public boolean isSolid() {
+    public boolean isClear() {
         return solid;
+    }
+
+    public IWorld getWorld() {
+        return world;
     }
 
 

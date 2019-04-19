@@ -46,5 +46,11 @@ public abstract class RoomSection implements Serializable {
      * @return Whether the section can be entered or not.
      */
     public abstract boolean isSolid();
+
+    /**
+     * Sets the section links of a section
+     * @param links The links to set
+     */
+    public abstract void setSectionLinks(SectionLink[] links);
     
 }

@@ -37,4 +37,9 @@ public class CorePlugin  implements IPlugin {
         return null;
     }
 
+    //Returns nothing because the core plugins classes are already loaded
+    public Class<?>[] getClasses() {
+        return new Class<?>[0];
+    }
+
 }

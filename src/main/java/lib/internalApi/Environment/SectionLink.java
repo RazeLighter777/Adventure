@@ -1,81 +1,51 @@
 package lib.internalApi.Environment;
 
-import lib.internalApi.Environment.Position;
+import environment.Room;
 
 import java.io.Serializable;
 
-public class SectionLink implements Serializable {
+public abstract class SectionLink implements Serializable {
 
     public static final long serialVersionUID = 1;
 
-    private Position linkPosition;
+    protected Room parentRoom;
 
-    private String directionDescription;
-
-    private String generalDescription;
-
-    private String detailedDescription;
-
-    /**
-     * Creates a new link
-     * @param lPosition The position this link leads to
-     * @param dirD A direction descriptor
-     * @param gD A general descriptor
-     * @param dD A detailed descriptor
-     */
-    public SectionLink(Position lPosition, String dirD, String gD, String dD) {
-        directionDescription = dirD;
-        linkPosition = lPosition;
-        generalDescription = gD;
-        detailedDescription = dD;
+    public SectionLink(Room parentRoom) {
+        this.parentRoom = parentRoom;
     }
     /**
      * 
      * @return A description string (North, down, up, left, tunnel, etc)
      */
-    public String getDirectionDescription() {
-        return directionDescription;
-    }
-
+    public abstract String getDirectionDescription();
     /**
      * 
      * @return A brief description of the feature
      */
-    public String getGeneralDescription() {
-        return generalDescription;
-    }
+    public abstract String getGeneralDescription();
 
     /**
      * 
      * @return A detailed description of the feature.
      */
-    public String getDetailedDescription() {
-        return detailedDescription;
-    }
+    public abstract String getDetailedDescription();
 
     /**
      * 
      * @return The position this links to.
      */
-    public Position followLink() {
-        return linkPosition;
-    }
+    public abstract Position followLink();
 
     /**
      * Whether the position this links to can be percieved.
      * @return whether it can be percieved.
      */
-    public boolean isClear() {
-        return true;
-    }
-
+    public abstract boolean isClear();
     /**
      * 
      * @return The cost of traveling through the link
      */
-    public double getTravelCost() {
-        return 0.0;
-    }
+    public abstract double getTravelCost();
 
 
 }

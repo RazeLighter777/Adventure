@@ -10,11 +10,20 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 
 import api.IPlugin;
+import environment.IWorld;
 import org.json.*;
 
 public final class Game {
 
     static Logger logger = App.logger;
+
+    private static Game gameInstance = new Game();
+
+    private World loadedWorld;
+
+    public static Game getInstance() {
+        return gameInstance;
+    }
 
     public ArrayList<IPlugin> plugins;
 
@@ -28,6 +37,10 @@ public final class Game {
             }
             
        }
+    }
+
+    public IWorld getWorldInterface() {
+        return loadedWorld;
     }
 
     public boolean loadPlugin(String path) {
@@ -54,7 +67,7 @@ public final class Game {
         } catch (IOException e) {
             logger.log(Level.WARNING, "Error opening jarfile at path " + path);
         } catch (ClassCastException e) {
-
+            logger.log(Level.WARNING, "ClassCastException, so wrong class type or something in jarfile at " + path);
         }
          catch (ClassNotFoundException e) {
             logger.log(Level.WARNING, "Could not find plugin class in plugin at path " + path);

@@ -1,8 +1,5 @@
 package lib.internalApi.Environment;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import environment.IEnvironment;
 import environment.RoomSection;
 import environment.Room;
@@ -35,7 +32,11 @@ public class MainSection extends RoomSection {
     }
 
     public boolean isSolid() {
-        return parentRoom.isSolid();
+        return parentRoom.isClear();
+    }
+
+    public void setSectionLinks(SectionLink[] links) {
+        sectionLinks = links;
     }
 
 

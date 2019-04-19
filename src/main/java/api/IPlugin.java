@@ -12,6 +12,8 @@ public interface IPlugin {
     
     void initializePlugin();
 
+    Class<?>[] getClasses();
+
     IWorldGenerationLambda[] getGenerationAlgorithms();
 
     IRoomFactory[] loadRoomFactories();

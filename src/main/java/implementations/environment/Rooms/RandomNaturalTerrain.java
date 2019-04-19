@@ -2,6 +2,7 @@ package implementations.environment.Rooms;
 
 
 import environment.IEnvironment;
+import lib.internalApi.Environment.DirectionalLink;
 import lib.internalApi.Environment.Environment;
 import org.json.JSONObject;
 
@@ -67,6 +68,7 @@ public class RandomNaturalTerrain extends Room {
             terrainDescriptor= terrains[(w.getWorldSeed().hashCode() + p.hashCode()) % terrains.length];
         }
         roomEnvironment = terrainDescriptor.env;
+        mainSection.setSectionLinks(DirectionalLink.getCompassSectionLinks(this));
     }
 
     public void update() {

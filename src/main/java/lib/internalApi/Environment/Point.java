@@ -16,6 +16,10 @@ public class Point {
         this.y = y;
     }
 
+    public Point add(Point b) {
+        return new Point(this.x + b.x, this.y + b.y);
+    }
+
     public int hashCode() {
         return Integer.parseInt("" + x + "0" + y);
     }
