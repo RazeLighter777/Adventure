@@ -15,7 +15,7 @@ import org.json.*;
 
 public final class Game {
 
-    static Logger logger = App.logger;
+    public static Logger logger = App.logger;
 
     private static Game gameInstance = new Game();
 

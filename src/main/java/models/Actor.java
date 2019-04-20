@@ -31,7 +31,10 @@ public abstract class Actor extends PhysicalInstance implements Serializable {
         reposition(p);
     }
 
-    public abstract boolean topple(Actor cause);
+    public abstract boolean topple();
+
+    public boolean topple(Actor cause) { return topple(); }
+
 
     public abstract boolean sendDeletionRequest(Item i);
 
