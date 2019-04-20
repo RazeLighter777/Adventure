@@ -4,10 +4,10 @@ import environment.IWorld;
 import environment.Room;
 import implementations.environment.Rooms.RandomNaturalTerrain;
 import lib.internalApi.Environment.Point;
-import lib.lambdas.IWorldGenerationLambda;
+import environment.IWorldGenerationAlgorithm;
 import org.json.JSONObject;
 
-public class RandomNaturalTerrainWorldGenerator implements IWorldGenerationLambda {
+public class RandomNaturalTerrainWorldGenerator implements IWorldGenerationAlgorithm {
 
     /**
      * Just generate a random room at that point.
@@ -15,8 +15,15 @@ public class RandomNaturalTerrainWorldGenerator implements IWorldGenerationLambd
      * @param p The point
      * @return The room
      */
-    public Room generateRoom(IWorld w, Point p) {
+    public Room generateAtPoint(IWorld w, Point p) {
         return new RandomNaturalTerrain(w, p, new JSONObject());
     }
 
+    public String getName() {
+        return "Random natural terrain";
+    }
+
+    public String getDescription() {
+        return "Generates a highly randomized, featureless wilderness";
+    }
 }

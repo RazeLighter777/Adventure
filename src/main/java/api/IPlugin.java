@@ -1,6 +1,6 @@
 package api;
 
-import lib.lambdas.IWorldGenerationLambda;
+import environment.IWorldGenerationAlgorithm;
 
 public interface IPlugin {
 
@@ -14,7 +14,7 @@ public interface IPlugin {
 
     Class<?>[] getClasses();
 
-    IWorldGenerationLambda[] getGenerationAlgorithms();
+    IWorldGenerationAlgorithm[] getGenerationAlgorithms();
 
     IRoomFactory[] loadRoomFactories();
 

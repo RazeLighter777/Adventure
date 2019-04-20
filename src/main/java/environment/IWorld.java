@@ -12,6 +12,15 @@ import models.*;
 
 public interface IWorld extends Serializable {
 
+
+    /**
+     * Adds a room at a position if it is not already taken
+     * @param r The room
+     * @param p The point.
+     * @return whether it was successful.
+     */
+    public boolean addRoomAt(Room r, Point p);
+
     /**
      *
      * @param a Submit an action lambda to the world

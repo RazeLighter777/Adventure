@@ -1,7 +1,7 @@
 package implementations;
 
 import api.*;
-import lib.lambdas.IWorldGenerationLambda;
+import environment.IWorldGenerationAlgorithm;
 
 public class CorePlugin  implements IPlugin {
 
@@ -21,7 +21,7 @@ public class CorePlugin  implements IPlugin {
         return;
     }
 
-    public IWorldGenerationLambda[] getGenerationAlgorithms() {
+    public IWorldGenerationAlgorithm[] getGenerationAlgorithms() {
         return null;
     }
 

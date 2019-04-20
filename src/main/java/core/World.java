@@ -14,7 +14,7 @@ import api.IItemFactory;
 import api.IPlugin;
 import environment.*;
 import models.*;
-import lib.lambdas.IWorldGenerationLambda;
+import environment.IWorldGenerationAlgorithm;
 import java.util.Hashtable;
 
 public  class World implements IWorld {
@@ -33,9 +33,9 @@ public  class World implements IWorld {
 
     private transient ArrayList<Actor> deletionRequests;
 
-    private transient IWorldGenerationLambda worldGenerator;
+    private transient IWorldGenerationAlgorithm worldGenerator;
 
-    public World(Game g, IWorldGenerationLambda gen) {
+    public World(Game g, IWorldGenerationAlgorithm gen) {
         worldGenerator = gen;
         setGame(g);
         rooms = new Hashtable<>();
@@ -67,9 +67,17 @@ public  class World implements IWorld {
     }
 
     @Override
+    public boolean addRoomAt(Room r, Point p) {
+        if (rooms.get(p).equals(null)) {
+            rooms.put(p, r);
+            return true;
+        }
+        return false;
+    }
+    @Override
     public Room getRoomAt(Point point) {
         if (!rooms.contains(point)) {
-            rooms.put(point, worldGenerator.generateRoom(this, point));
+            rooms.put(point, worldGenerator.generateAtPoint(this, point));
         }
         return rooms.get(point);
     }
