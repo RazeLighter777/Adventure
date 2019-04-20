@@ -11,20 +11,20 @@ public interface IInventory extends Serializable {
      * 
      * @return An arraylist of items eligable to be taken.
      */
-    public ArrayList<Item> getItems();
+    ArrayList<Item> getItems();
 
     /**
      * Adds an item to the inventory
      * @return Whether the item was removed
      */
-    public boolean addItem();
+    boolean addItem(Item i);
 
     /**
      * Removes an item from the inventory
      * @param m The item to be removed.
      * @return Whether the removal was accepted.
      */
-    public boolean removeItem(Item m);
+    boolean removeItem(Item m);
 
     /**
      * Removes multiple items from the inventory
@@ -32,6 +32,26 @@ public interface IInventory extends Serializable {
      * @param quantity The quanity to remove it in
      * @return Whether the item was actually removed.
      */
-    public boolean removeItem(Item m, int quantity);
+    boolean removeItem(Item m, int quantity);
+
+    /**
+     *
+     * @return The maximum volume allowed in the inventory
+     */
+    double getVolumeMaximum();
+
+    /**
+     *
+     * @return The maximum weight allowed in the inventory
+     */
+    double getWeightMaximum();
+
+    /**
+     *
+     * @return The maximum number of items allowed in the inventory
+     */
+    double getMaxCapacity();
+
+
 
 }

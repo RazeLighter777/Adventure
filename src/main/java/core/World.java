@@ -57,9 +57,14 @@ public  class World implements IWorld {
         actionQueue = new ArrayList<>();
         deletionRequests = new ArrayList<>();
     }
+
+    public void setWorldSeed(String seed) {
+        worldSeed = seed;
+    }
+
     @Override
     public String getWorldSeed() {
-        return "worldSeed";
+        return worldSeed;
     }
 
     public void setGame(Game g) {
@@ -68,7 +73,7 @@ public  class World implements IWorld {
 
     @Override
     public boolean addRoomAt(Room r, Point p) {
-        if (rooms.get(p).equals(null)) {
+        if (!rooms.containsKey(p)) {
             rooms.put(p, r);
             return true;
         }
