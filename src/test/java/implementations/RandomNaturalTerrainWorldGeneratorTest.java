@@ -10,8 +10,7 @@ public class RandomNaturalTerrainWorldGeneratorTest {
     @Test
     public void test() {
         Game g = new Game();
-        World w = new World(g, new RandomNaturalTerrainWorldGenerator());
-        w.setWorldSeed("worldSeed");
+        World w = new World(g, new RandomNaturalTerrainWorldGenerator(), "test");
         for (int x = 0; x < 100; x++) {
             for (int y = 0; y < 100; y++) {
                 w.getRoomAt(new Point(x, y));

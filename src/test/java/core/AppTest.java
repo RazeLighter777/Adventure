@@ -19,7 +19,7 @@ public class AppTest
     public void shouldAnswerWithTrue()
     {
         Game g = new Game();
-        World w = new World(g, new RandomNaturalTerrainWorldGenerator());
+        World w = new World(g, new RandomNaturalTerrainWorldGenerator(), "test");
         w.getRoomAt(new Point(3, 2));
         //g.beginGame(new JSONObject());
         assertTrue( true );

@@ -35,8 +35,8 @@ public  class World implements IWorld {
 
     private transient IWorldGenerationAlgorithm worldGenerator;
 
-    public World(Game g, IWorldGenerationAlgorithm gen) {
-        setWorldSeed("default");
+    public World(Game g, IWorldGenerationAlgorithm gen, String worldSeed) {
+        setWorldSeed(worldSeed);
         worldGenerator = gen;
         setGame(g);
         rooms = new Hashtable<>();
