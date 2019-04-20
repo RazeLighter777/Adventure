@@ -12,6 +12,7 @@ public class RockTest {
     public void test() {
         World w = new World(new Game(), new RandomNaturalTerrainWorldGenerator(), "test");
         w.addActor(new Rock(w, w.getRoomAt(new Point(0,0)).getMainSection().getPosition()));
+        System.out.println(w.getActorsInRoom(w.getRoomAt(new Point(0,0)))[0].getDetailedDescription());
         w.update();
     }
 }

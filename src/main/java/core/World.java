@@ -82,10 +82,14 @@ public  class World implements IWorld {
     }
     @Override
     public Room getRoomAt(Point point) {
-        if (!rooms.contains(point)) {
-            rooms.put(point, worldGenerator.generateAtPoint(this, point));
+        for (Point p : rooms.keySet()) {
+            if (p.equals(point)) {
+                return rooms.get(p);
+            }
         }
-        return rooms.get(point);
+        Room r =  worldGenerator.generateAtPoint(this, point);
+        rooms.put(point, r);
+        return r;
     }
 
     @Override
