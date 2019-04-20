@@ -10,6 +10,10 @@ public class Point {
         return c.x == x && c.y == y;
     }
 
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     public Point(int x, int y) {
         super();
         this.x = x;
@@ -18,10 +22,6 @@ public class Point {
 
     public Point add(Point b) {
         return new Point(this.x + b.x, this.y + b.y);
-    }
-
-    public int hashCode() {
-        return Integer.parseInt("" + x + "0" + y);
     }
 
     public int getX() {

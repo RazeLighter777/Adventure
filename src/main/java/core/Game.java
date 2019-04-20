@@ -57,7 +57,7 @@ public final class Game {
                 // -6 because of .class
                 String className = je.getName().substring(0, je.getName().length() - 6);
                 className = className.replace('/', '.');
-                if (className.contains("Plugin")) {
+                if (className.equals("Plugin")) {
                     @SuppressWarnings("unchecked")
                     Class<IPlugin> c = (Class<IPlugin>) cl.loadClass(className);
                     plugins.add(c.getDeclaredConstructor().newInstance());

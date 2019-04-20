@@ -1,6 +1,5 @@
 package lib.internalApi.Environment;
 
-import core.Game;
 import environment.Room;
 
 public class DirectionalLink extends SectionLink {
@@ -51,14 +50,13 @@ public class DirectionalLink extends SectionLink {
         };
     }
 
-    Room targetRoom;
+    Point linkPoint;
     Direction linkDirection;
 
     public DirectionalLink(Room parentRoom, Direction lDirection) {
         super(parentRoom);
         linkDirection = lDirection;
-        Point directionVector = Direction.getDirectionVector(lDirection);
-        targetRoom = parentRoom.getWorld().getRoomAt(parentRoom.getPoint().add(directionVector));
+        linkPoint  = Direction.getDirectionVector(lDirection).add(parentRoom.getPoint());
     }
 
     @Override
@@ -67,22 +65,22 @@ public class DirectionalLink extends SectionLink {
     }
 
     public String getGeneralDescription() {
-        return targetRoom.getGeneralDescription();
+        return parentRoom.getWorld().getRoomAt(linkPoint).getGeneralDescription();
     }
 
     public String getDetailedDescription() {
-        return targetRoom.getDetailedDescription();
+        return parentRoom.getWorld().getRoomAt(linkPoint).getDetailedDescription();
     }
 
     public Position followLink() {
-        return targetRoom.getMainSection().getPosition();
+        return parentRoom.getWorld().getRoomAt(linkPoint).getMainSection().getPosition();
     }
 
     public boolean isClear() {
-        return targetRoom.isClear();
+        return parentRoom.getWorld().getRoomAt(linkPoint).isClear();
     }
 
     public double getTravelCost() {
-        return targetRoom.getEnvironment().getCover();
+        return parentRoom.getWorld().getRoomAt(linkPoint).getEnvironment().getCover();
     }
 }

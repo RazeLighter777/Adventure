@@ -4,6 +4,8 @@ package implementations.environment.Rooms;
 import environment.IEnvironment;
 import lib.internalApi.Environment.DirectionalLink;
 import lib.internalApi.Environment.Environment;
+import lib.internalApi.Environment.MainSection;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import environment.IWorld;
@@ -56,19 +58,21 @@ public class RandomNaturalTerrain extends Room {
     public RandomNaturalTerrain(IWorld w, Point p, JSONObject json) {
         super(w, p);
         //Change this to the random world generator
-        if (json.get("type") != JSONObject.NULL) {
-
+        if (json.isEmpty()) {
+            terrainDescriptor= terrains[Math.abs(w.getWorldSeed().hashCode() + p.hashCode()) % terrains.length];
+            roomEnvironment = terrainDescriptor.env;
+            mainSection = new MainSection(this, DirectionalLink.getCompassSectionLinks(this));
+            return;
+        }
+        try {
             for (TerrainDescriptor td : terrains) {
                 if (td.type.equals(TerrainType.valueOf(json.getString("type")))) {
                     terrainDescriptor = td;
                 }
             }
-        } else {
+        } catch (JSONException e) {
             //Get the TD from the world seed.
-            terrainDescriptor= terrains[(w.getWorldSeed().hashCode() + p.hashCode()) % terrains.length];
         }
-        roomEnvironment = terrainDescriptor.env;
-        mainSection.setSectionLinks(DirectionalLink.getCompassSectionLinks(this));
     }
 
     public void update() {

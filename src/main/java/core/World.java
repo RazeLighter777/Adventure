@@ -59,7 +59,7 @@ public  class World implements IWorld {
     }
     @Override
     public String getWorldSeed() {
-        return worldSeed;
+        return "worldSeed";
     }
 
     public void setGame(Game g) {
