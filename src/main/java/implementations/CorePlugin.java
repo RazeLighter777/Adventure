@@ -2,6 +2,8 @@ package implementations;
 
 import api.*;
 import environment.IWorldGenerationAlgorithm;
+import implementations.actors.Rock;
+import lib.factories.ActorFactory;
 
 public class CorePlugin  implements IPlugin {
 
@@ -34,7 +36,9 @@ public class CorePlugin  implements IPlugin {
     }
 
     public IActorFactory[] loadActorFactories() {
-        return null;
+        return new IActorFactory[] {
+                new ActorFactory<>(Rock.class, "Rock")
+        };
     }
 
     //Returns nothing because the core plugins classes are already loaded

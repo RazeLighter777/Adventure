@@ -1,5 +1,6 @@
 package core;
 
+import lib.internalApi.StringManager;
 import org.junit.Test;
 
 public class StringManagerTest {

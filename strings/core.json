@@ -1,3 +1,13 @@
 {
-  "RockDescription" : "A rocky rock"
+  "RockDescription" : "A rocky rock",
+  "DesertGD" : "A barren desert",
+  "PlainGD" : "Grassy plains",
+  "HillGD" : "Rolling Hills",
+  "SnowGD" : "A snowy plain",
+  "SwampGD" : "A marshy swamp",
+  "DesertDD" : "Barren strech of sand as far as the eye can see",
+  "HillDD" : "Rolling green spring hills",
+  "SnowDD" : "Barren stretch of fluffy snow",
+  "SwampDD" : "A humid, moist, muddy, swamp",
+  "PlainDD" : "Tallish grasses across a flat fertile plain"
 }

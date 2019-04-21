@@ -1,6 +1,8 @@
 package implementations.environment.Rooms;
 
 
+import core.Game;
+import lib.internalApi.StringManager;
 import environment.IEnvironment;
 import lib.internalApi.Environment.DirectionalLink;
 import lib.internalApi.Environment.Environment;
@@ -19,12 +21,14 @@ public class RandomNaturalTerrain extends Room {
 
     public static final long serialVersionUID = 1;
 
+    private static final StringManager sm = Game.getInstance().getStringManager();
+
     private static TerrainDescriptor[] terrains = new TerrainDescriptor[] {
-            new TerrainDescriptor(TerrainType.DESERT, new Environment(0.2, 90, 1, 0), "A desert", "Barren strech of sand as far as the eye can see"),
-            new TerrainDescriptor(TerrainType.HILL, new Environment(0.1, 65, 0.8, 0.2), "Some grassy hills", "Rolling green spring hills"),
-            new TerrainDescriptor(TerrainType.SNOW, new Environment(0.7, 15, 1, 0), "A snowy plain", "Barren stretch of fluffy snow"),
-            new TerrainDescriptor(TerrainType.SWAMP, new Environment(0.6, 75, 0.5, 0.8), "A marshy swamp", "A humid, moist, muddy, swamp"),
-            new TerrainDescriptor(TerrainType.PLAIN, new Environment(0.1, 60, 1, 0.2), "A grassy plain", "Tallish grasses across a flat fertile plain")
+            new TerrainDescriptor(TerrainType.DESERT, new Environment(0.2, 90, 1, 0), sm.loadString("core.json","DesertGD"), sm.loadString("core.json", "DesertDD")),
+            new TerrainDescriptor(TerrainType.HILL, new Environment(0.1, 65, 0.8, 0.2), sm.loadString("core.json", "HillGD"), sm.loadString("core.json", "HillDD")),
+            new TerrainDescriptor(TerrainType.SNOW, new Environment(0.7, 15, 1, 0), sm.loadString("core.json", "SnowGD"), sm.loadString("core.json", "SnowDD")),
+            new TerrainDescriptor(TerrainType.SWAMP, new Environment(0.6, 75, 0.5, 0.8), sm.loadString("core.json", "SwampGD"), sm.loadString("core.json", "SwampDD")),
+            new TerrainDescriptor(TerrainType.PLAIN, new Environment(0.1, 60, 1, 0.2), sm.loadString("core.json", "PlainGD"), sm.loadString("core.json", "PlainDD"))
     };
 
     private enum TerrainType {

@@ -49,17 +49,17 @@ public abstract class StaticActor extends Actor {
 
     @Override
     public double getWeight() {
-        return 0;
+        return 1;
     }
 
     @Override
     public double getVolume() {
-        return 0;
+        return 1;
     }
 
     @Override
     public double getTemperature() {
-        return 0;
+        return 65;
     }
 
     @Override

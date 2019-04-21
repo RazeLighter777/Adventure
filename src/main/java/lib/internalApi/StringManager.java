@@ -1,12 +1,11 @@
-package core;
+package lib.internalApi;
 
+import core.Game;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 

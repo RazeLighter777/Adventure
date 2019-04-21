@@ -4,14 +4,16 @@ import core.Game;
 import environment.IWorld;
 import lib.internalApi.Environment.Position;
 import lib.templates.StaticActor;
+import org.json.JSONObject;
 
 public class Rock extends StaticActor {
 
     public static final long serialVersionUID = 1;
 
-    public Rock(IWorld w, Position p) {
-        super(w, p);
+    public Rock(Position p, JSONObject jo) {
+        super(Game.getInstance().getWorldInterface(), p);
     }
+
     @Override
     public String getFullName() {
         return "Rock";

@@ -11,6 +11,7 @@ import java.net.URL;
 
 import api.IPlugin;
 import environment.IWorld;
+import lib.internalApi.StringManager;
 import org.json.*;
 
 public final class Game {
