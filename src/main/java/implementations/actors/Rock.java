@@ -1,5 +1,6 @@
 package implementations.actors;
 
+import core.Game;
 import environment.IWorld;
 import lib.internalApi.Environment.Position;
 import lib.templates.StaticActor;
@@ -28,6 +29,6 @@ public class Rock extends StaticActor {
 
     @Override
     public String getDetailedDescription() {
-        return "A rocky rock";
+        return Game.getInstance().getStringManager().loadString("core.json", "RockDescription");
     }
 }

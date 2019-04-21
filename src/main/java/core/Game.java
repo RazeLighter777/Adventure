@@ -27,8 +27,15 @@ public final class Game {
 
     public ArrayList<IPlugin> plugins;
 
+    private StringManager stringManager = new StringManager();
+
+    public StringManager getStringManager() {
+        return stringManager;
+    }
+
     public void beginGame(JSONObject options) {
         //plugins.add(new CorePlugin());
+        stringManager.loadBundle("localization/core.json");
         logger = App.logger;
         JSONArray ja = (JSONArray)options.get("plugins");
         for (int i = 0; i < ja.length(); i++) {
