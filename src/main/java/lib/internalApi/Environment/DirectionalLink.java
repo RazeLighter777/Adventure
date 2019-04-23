@@ -76,8 +76,9 @@ public class DirectionalLink extends SectionLink {
         return parentRoom.getWorld().getRoomAt(linkPoint).getMainSection().getPosition();
     }
 
-    public boolean isClear() {
-        return parentRoom.getWorld().getRoomAt(linkPoint).isClear();
+    public double getClarity() {
+        //return parentRoom.getWorld().getRoomAt(linkPoint).isClear();
+        return 1.0;
     }
 
     public double getTravelCost() {

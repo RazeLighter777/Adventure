@@ -67,8 +67,8 @@ public class StandardLink extends SectionLink {
      * Whether the position this links to can be percieved.
      * @return whether it can be percieved.
      */
-    public boolean isClear() {
-        return true;
+    public double getClarity() {
+        return 1;
     }
 
     /**

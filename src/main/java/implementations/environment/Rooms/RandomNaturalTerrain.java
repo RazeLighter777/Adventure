@@ -2,7 +2,7 @@ package implementations.environment.Rooms;
 
 
 import core.Game;
-import lib.internalApi.StringManager;
+import lib.internalApi.Resources.StringManager;
 import environment.IEnvironment;
 import lib.internalApi.Environment.DirectionalLink;
 import lib.internalApi.Environment.Environment;
@@ -41,13 +41,13 @@ public class RandomNaturalTerrain extends Room {
 
     private static class TerrainDescriptor implements Serializable {
 
-        public static final long serialVersionUID = 1;
+        private static final long serialVersionUID = 1;
 
-        public IEnvironment env;
+        private IEnvironment env;
 
-        public TerrainType type;
+        private TerrainType type;
 
-        public String genD;
+        private String genD;
 
         public String detD;
 
@@ -104,7 +104,6 @@ public class RandomNaturalTerrain extends Room {
     }
 
     public void receiveDeletionRequest () {
-        return;
     }
 
 

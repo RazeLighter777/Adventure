@@ -15,7 +15,8 @@ public class CorePluginTest {
     public void test() {
         World w = new World(new Game(), new RandomNaturalTerrainWorldGenerator(), "test");
         IPlugin plugin = new CorePlugin();
-        plugin.loadActorFactories()[0].createActor(w.getRoomAt(new Point(0,0)).getMainSection().getPosition(), new JSONObject());
+        System.out.println(plugin.loadActorFactories()[0].createActor(w.getRoomAt(new Point(0,0)).getMainSection().getPosition(), new JSONObject()).getDetailedDescription());
+        System.out.println(plugin.loadItemFactories()[0].createItem(new JSONObject()).getDetailedDescription());
         w.update();
     }
 }

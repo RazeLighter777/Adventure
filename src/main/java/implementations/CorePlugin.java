@@ -3,7 +3,10 @@ package implementations;
 import api.*;
 import environment.IWorldGenerationAlgorithm;
 import implementations.actors.Rock;
+import implementations.items.Ball;
 import lib.factories.ActorFactory;
+import lib.factories.ItemFactory;
+import models.Item;
 
 public class CorePlugin  implements IPlugin {
 
@@ -20,7 +23,6 @@ public class CorePlugin  implements IPlugin {
     }
 
     public void initializePlugin() {
-        return;
     }
 
     public IWorldGenerationAlgorithm[] getGenerationAlgorithms() {
@@ -32,7 +34,9 @@ public class CorePlugin  implements IPlugin {
     }
 
     public IItemFactory[] loadItemFactories() {
-        return null;
+        return new IItemFactory[] {
+                new ItemFactory<>(Ball.class, "Ball")
+        };
     }
 
     public IActorFactory[] loadActorFactories() {

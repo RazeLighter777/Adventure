@@ -52,5 +52,6 @@ public abstract class RoomSection implements Serializable {
      * @param links The links to set
      */
     public abstract void setSectionLinks(SectionLink[] links);
+
     
 }

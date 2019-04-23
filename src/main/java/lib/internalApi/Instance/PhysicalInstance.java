@@ -74,4 +74,11 @@ public abstract class PhysicalInstance implements IInstance {
         return hit(projectile, thrower);
     }
 
+
+    /**
+     *
+     * @return The value of the item, or level of the actor
+     */
+    public abstract double getValue();
+
 }

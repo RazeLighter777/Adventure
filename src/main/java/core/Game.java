@@ -11,7 +11,7 @@ import java.net.URL;
 
 import api.IPlugin;
 import environment.IWorld;
-import lib.internalApi.StringManager;
+import lib.internalApi.Resources.StringManager;
 import org.json.*;
 
 public final class Game {
@@ -20,12 +20,20 @@ public final class Game {
 
     private static Game gameInstance = new Game();
 
+    private static final String gameDataPath = "game";
+
+    private JSONObject gameJson;
+
+
     private World loadedWorld;
 
     public static Game getInstance() {
         return gameInstance;
     }
 
+    public JSONObject queryGameProperty() {
+        return gameJson;
+    }
     public ArrayList<IPlugin> plugins;
 
     private StringManager stringManager = new StringManager();
@@ -35,6 +43,15 @@ public final class Game {
     }
 
     public void beginGame(JSONObject options) {
+        //Load the game properties.
+        try {
+            FileInputStream ifstream = new FileInputStream(gameDataPath + "/game.json");
+            JSONTokener tokener = new JSONTokener(ifstream);
+            gameJson = new JSONObject(tokener);
+        } catch (FileNotFoundException e) {
+            logger.log(Level.SEVERE, "Game failed to find game.json at path " + gameDataPath + "/game.json");
+        }
+
         //plugins.add(new CorePlugin());
         stringManager.loadBundle("localization/core.json");
         logger = App.logger;

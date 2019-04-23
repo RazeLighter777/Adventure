@@ -37,10 +37,10 @@ public abstract class SectionLink implements Serializable {
     public abstract Position followLink();
 
     /**
-     * Whether the position this links to can be percieved.
+     * Whether the position this links to can be perceived. 0 is imperceptible, 1 is clear
      * @return whether it can be percieved.
      */
-    public abstract boolean isClear();
+    public abstract double getClarity();
     /**
      * 
      * @return The cost of traveling through the link

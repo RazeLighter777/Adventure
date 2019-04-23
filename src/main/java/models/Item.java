@@ -63,4 +63,21 @@ public abstract class Item extends PhysicalInstance implements Serializable {
      */
     public abstract boolean hurl(Actor target, SThrow tSThrow);
 
+    public abstract Optional<SNutrition> drink(Actor eater);
+
+    /**
+     *
+     * @return Whether the item can be eaten
+     */
+    public abstract boolean edible();
+
+    /**
+     *
+     * @return Whether the item can be drank
+     */
+    public abstract boolean drinkable();
+
+
+
+
 }

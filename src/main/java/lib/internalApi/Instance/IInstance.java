@@ -1,5 +1,7 @@
 package lib.internalApi.Instance;
 
+import org.json.JSONObject;
+
 import java.util.Optional;
 
 public interface IInstance {
@@ -17,5 +19,7 @@ public interface IInstance {
     String getDetailedDescription();
 
     void receiveDeletionRequest();
+
+    Optional<JSONObject> queryProperty();
     
 }

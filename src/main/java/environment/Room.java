@@ -1,9 +1,11 @@
 package environment;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 import lib.internalApi.Instance.IInstance;
 import lib.internalApi.Environment.Point;
+import org.json.JSONObject;
 
 public abstract class Room implements IInstance, Serializable {
     
@@ -51,6 +53,8 @@ public abstract class Room implements IInstance, Serializable {
         return world;
     }
 
-
+    public Optional<JSONObject> queryProperty() {
+        return Optional.empty();
+    }
 
 }

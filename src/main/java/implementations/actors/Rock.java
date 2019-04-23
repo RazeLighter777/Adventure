@@ -6,7 +6,14 @@ import lib.internalApi.Environment.Position;
 import lib.templates.StaticActor;
 import org.json.JSONObject;
 
+import java.util.Optional;
+
 public class Rock extends StaticActor {
+
+    @Override
+    public double getValue() {
+        return 1.0;
+    }
 
     public static final long serialVersionUID = 1;
 
@@ -32,5 +39,10 @@ public class Rock extends StaticActor {
     @Override
     public String getDetailedDescription() {
         return Game.getInstance().getStringManager().loadString("core.json", "RockDescription");
+    }
+
+    @Override
+    public Optional<String> getFactoryAssetId() {
+        return Optional.of("core.Rock");
     }
 }

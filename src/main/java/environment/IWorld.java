@@ -19,7 +19,7 @@ public interface IWorld extends Serializable {
      * @param p The point.
      * @return whether it was successful.
      */
-    public boolean addRoomAt(Room r, Point p);
+    boolean addRoomAt(Room r, Point p);
 
     /**
      *
@@ -95,5 +95,12 @@ public interface IWorld extends Serializable {
      * Updates the map for one tick
      */
     void update();
+
+    /**
+     *
+     * @return A JSON String containing the world's properties.
+     */
+    JSONObject queryWorldProperty();
+
 
 }

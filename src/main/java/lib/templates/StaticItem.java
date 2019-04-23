@@ -1,8 +1,7 @@
 package lib.templates;
 
-import core.Game;
-import environment.IWorld;
 import lib.dataStructures.SAttack;
+import lib.dataStructures.SNutrition;
 import lib.dataStructures.SThrow;
 import lib.internalApi.Environment.Position;
 import lib.internalApi.Instance.IInventory;
@@ -12,40 +11,53 @@ import org.json.JSONObject;
 
 import java.util.Optional;
 
-public abstract  class StaticActor extends Actor {
+public abstract class StaticItem extends Item {
 
     public static final long serialVersionUID = 1;
 
-    protected Position p;
-
-    public StaticActor(IWorld w, Position p) {
-        super(w);
-        this.p = p;
-    }
-
     @Override
-    public Position getPosition() {
-        return p;
-    }
-
-    @Override
-    public void reposition(Position n) {
-        p = n;
-    }
-
-    @Override
-    public boolean topple() {
+    public boolean stackable() {
         return false;
     }
 
     @Override
-    public boolean sendDeletionRequest(Item i) {
+    public double getValue() {
+        return 1;
+    }
+
+    @Override
+    public boolean hurlable() {
         return false;
     }
 
     @Override
-    public Optional<Item> pickUp() {
+    public int stackQuantity() {
+        return 1;
+    }
+
+    @Override
+    public boolean popStack(int amount) {
+        return false;
+    }
+
+    @Override
+    public boolean pushStack(int items) {
+        return false;
+    }
+
+    @Override
+    public Optional<SNutrition> eat(Actor eater) {
         return Optional.empty();
+    }
+
+    @Override
+    public boolean hurl(Position target, SThrow tSThrow) {
+        return false;
+    }
+
+    @Override
+    public boolean hurl(Actor target, SThrow tSThrow) {
+        return false;
     }
 
     @Override
@@ -60,7 +72,7 @@ public abstract  class StaticActor extends Actor {
 
     @Override
     public double getTemperature() {
-        return 65;
+        return 0;
     }
 
     @Override
@@ -90,13 +102,16 @@ public abstract  class StaticActor extends Actor {
 
     @Override
     public void update() {
+
     }
+
 
 
     @Override
     public Optional<String> getFactoryAssetId() {
         return Optional.empty();
     }
+
 
     @Override
     public void receiveDeletionRequest() {
@@ -108,4 +123,18 @@ public abstract  class StaticActor extends Actor {
         return Optional.empty();
     }
 
+    @Override
+    public Optional<SNutrition> drink(Actor eater) {
+        return Optional.empty();
+    }
+
+    @Override
+    public boolean edible() {
+        return false;
+    }
+
+    @Override
+    public boolean drinkable() {
+        return false;
+    }
 }

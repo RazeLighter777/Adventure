@@ -35,6 +35,10 @@ public  class World implements IWorld {
 
     private transient IWorldGenerationAlgorithm worldGenerator;
 
+    public JSONObject queryWorldProperty() {
+        return new JSONObject();
+    }
+
     public World(Game g, IWorldGenerationAlgorithm gen, String worldSeed) {
         setWorldSeed(worldSeed);
         worldGenerator = gen;
