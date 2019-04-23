@@ -1,15 +1,18 @@
 package lib.internalApi.Controls;
 
+import api.IController;
+
 public abstract class Control {
 
-    public Control(String t, String d) {
-        title = t; description = d;
+    public Control(String t, String d, IController ic) {
+        title = t; description = d; controller = ic;
     }
 
     protected String description;
 
     protected String title;
 
+    IController controller;
 
     public String getDescription() {
         return description;

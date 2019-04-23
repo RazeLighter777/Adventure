@@ -1,5 +1,7 @@
 package lib.internalApi.Controls;
 
+import api.IController;
+
 import java.lang.reflect.Constructor;
 
 /**
@@ -9,8 +11,8 @@ public abstract class QuantityControl extends Control {
 
     protected int[] range;
 
-    public QuantityControl(String t, String d, int[] r) {
-        super(t, d);
+    public QuantityControl(String t, String d, IController ic, int[] r) {
+        super(t, d, ic);
         range = r;
     }
 
