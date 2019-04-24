@@ -10,6 +10,6 @@ public class StringManagerTest {
         System.out.println(System.getProperty("user.dir"));
         StringManager sm = new StringManager();
         sm.loadBundle("core.json");
-        System.out.println(sm.loadString("core.json", "RockDescription"));
+        System.out.println(sm.loadString("core.json", "RockDD"));
     }
 }
