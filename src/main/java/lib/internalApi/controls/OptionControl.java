@@ -19,16 +19,5 @@ public abstract class OptionControl extends Control {
 
     public abstract Result selectOption(int index);
 
-    public static class Option {
-
-        public String description;
-
-        public String title;
-
-        public Option(String t, String d) {
-            description = d; title = t;
-        }
-    }
-
 
 }

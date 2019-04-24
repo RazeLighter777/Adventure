@@ -5,9 +5,9 @@ import api.IController;
 /**
  * For immediate binary desisions, must be made before anything else.
  */
-public abstract class BinaryDesisionControl extends Control {
+public abstract class BinaryDecisionControl extends Control {
 
-    public BinaryDesisionControl(String t, String d, IController ic) {
+    public BinaryDecisionControl(String t, String d, IController ic) {
         super(t, d, ic);
     }
 
