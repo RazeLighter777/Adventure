@@ -1,6 +1,6 @@
 package core;
 
-import lib.internalApi.Resources.StringManager;
+import lib.internalApi.resources.StringManager;
 import org.junit.Test;
 
 public class StringManagerTest {

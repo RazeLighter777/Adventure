@@ -1,4 +1,4 @@
-package lib.internalApi.Environment;
+package lib.internalApi.environment;
 
 import environment.IEnvironment;
 

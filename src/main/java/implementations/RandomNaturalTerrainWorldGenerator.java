@@ -2,8 +2,8 @@ package implementations;
 
 import environment.IWorld;
 import environment.Room;
-import implementations.environment.Rooms.RandomNaturalTerrain;
-import lib.internalApi.Environment.Point;
+import implementations.environment.rooms.RandomNaturalTerrain;
+import lib.internalApi.environment.Point;
 import environment.IWorldGenerationAlgorithm;
 import org.json.JSONObject;
 

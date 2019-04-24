@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import lib.internalApi.Environment.Point;
-import lib.internalApi.Environment.Position;
-import lib.internalApi.Events.IAction;
+import lib.internalApi.environment.Point;
+import lib.internalApi.environment.Position;
+import lib.internalApi.events.IAction;
 import org.json.JSONObject;
 
 import api.IActorFactory;

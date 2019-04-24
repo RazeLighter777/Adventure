@@ -1,10 +1,9 @@
-package lib.internalApi.Environment;
+package lib.internalApi.environment;
 
 
 import java.io.Serializable;
 
 import environment.*;
-import lib.internalApi.Environment.Point;
 
 public class Position implements Serializable {
 

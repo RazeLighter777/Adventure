@@ -1,11 +1,10 @@
 package lib.templates;
 
-import core.Game;
 import environment.IWorld;
 import lib.dataStructures.SAttack;
 import lib.dataStructures.SThrow;
-import lib.internalApi.Environment.Position;
-import lib.internalApi.Instance.IInventory;
+import lib.internalApi.environment.Position;
+import lib.internalApi.instance.IInventory;
 import models.Actor;
 import models.Item;
 import org.json.JSONObject;

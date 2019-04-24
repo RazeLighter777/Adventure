@@ -1,6 +1,6 @@
 package api;
 
-import lib.internalApi.Environment.Position;
+import lib.internalApi.environment.Position;
 import models.Actor;
 import org.json.JSONObject;
 public interface IActorFactory extends IFactory {

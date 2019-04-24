@@ -2,7 +2,7 @@ package lib.factories;
 
 import api.IActorFactory;
 import core.Game;
-import lib.internalApi.Environment.Position;
+import lib.internalApi.environment.Position;
 import models.Actor;
 import org.json.JSONObject;
 

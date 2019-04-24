@@ -4,8 +4,7 @@ import core.Game;
 import core.World;
 import implementations.CorePlugin;
 import implementations.RandomNaturalTerrainWorldGenerator;
-import implementations.actors.Rock;
-import lib.internalApi.Environment.Point;
+import lib.internalApi.environment.Point;
 import org.json.JSONObject;
 import org.junit.Test;
 

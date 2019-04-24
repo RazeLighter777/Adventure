@@ -3,8 +3,7 @@ package core;
 import static org.junit.Assert.assertTrue;
 
 import implementations.RandomNaturalTerrainWorldGenerator;
-import lib.internalApi.Environment.Point;
-import org.json.JSONObject;
+import lib.internalApi.environment.Point;
 import org.junit.Test;
 
 /**

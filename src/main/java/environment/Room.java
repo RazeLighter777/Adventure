@@ -3,8 +3,8 @@ package environment;
 import java.io.Serializable;
 import java.util.Optional;
 
-import lib.internalApi.Instance.IInstance;
-import lib.internalApi.Environment.Point;
+import lib.internalApi.instance.IInstance;
+import lib.internalApi.environment.Point;
 import org.json.JSONObject;
 
 public abstract class Room implements IInstance, Serializable {

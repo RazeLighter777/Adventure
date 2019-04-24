@@ -1,10 +1,6 @@
 package environment;
 
-import java.util.ArrayList;
-
-import environment.IWorld;
-import environment.Room;
-import lib.internalApi.Environment.Point;
+import lib.internalApi.environment.Point;
 
 public interface IWorldGenerationAlgorithm {
 
@@ -15,7 +11,6 @@ public interface IWorldGenerationAlgorithm {
     String getName();
 
     /**
-     *
      * @return The description of the algorithm
      */
     String getDescription();

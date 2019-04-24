@@ -2,7 +2,6 @@ package lib.factories;
 
 import api.IItemFactory;
 import core.Game;
-import lib.internalApi.Instance.IInstance;
 import models.Item;
 import org.json.JSONObject;
 

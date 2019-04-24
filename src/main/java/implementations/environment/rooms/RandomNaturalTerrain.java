@@ -1,18 +1,18 @@
-package implementations.environment.Rooms;
+package implementations.environment.rooms;
 
 
 import core.Game;
-import lib.internalApi.Resources.StringManager;
+import lib.internalApi.resources.StringManager;
 import environment.IEnvironment;
-import lib.internalApi.Environment.DirectionalLink;
-import lib.internalApi.Environment.Environment;
-import lib.internalApi.Environment.MainSection;
+import lib.internalApi.environment.DirectionalLink;
+import lib.internalApi.environment.Environment;
+import lib.internalApi.environment.MainSection;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import environment.IWorld;
 import environment.Room;
-import lib.internalApi.Environment.Point;
+import lib.internalApi.environment.Point;
 
 import java.io.Serializable;
 import java.util.Optional;

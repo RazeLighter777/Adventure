@@ -1,8 +1,6 @@
-package lib.internalApi.Controls;
+package lib.internalApi.controls;
 
 import api.IController;
-
-import java.lang.reflect.Constructor;
 
 /**
  * For selections of a quantity.

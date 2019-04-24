@@ -1,6 +1,6 @@
 package lib.templates;
 
-import lib.internalApi.Instance.IInventory;
+import lib.internalApi.instance.IInventory;
 import models.Item;
 
 import java.util.ArrayList;

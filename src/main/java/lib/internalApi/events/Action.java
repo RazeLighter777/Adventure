@@ -1,4 +1,4 @@
-package lib.internalApi.Events;
+package lib.internalApi.events;
 
 import java.util.ArrayList;
 import java.util.Arrays;

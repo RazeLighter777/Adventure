@@ -1,9 +1,6 @@
-package lib.internalApi.Environment;
+package lib.internalApi.environment;
 
 import environment.Room;
-import lib.internalApi.Environment.Position;
-
-import java.io.Serializable;
 
 public class StandardLink extends SectionLink {
 

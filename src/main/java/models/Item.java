@@ -2,8 +2,8 @@ package models;
 
 import java.io.Serializable;
 
-import lib.internalApi.Instance.PhysicalInstance;
-import lib.internalApi.Environment.Position;
+import lib.internalApi.instance.PhysicalInstance;
+import lib.internalApi.environment.Position;
 
 import java.util.Optional;
 import lib.dataStructures.*;

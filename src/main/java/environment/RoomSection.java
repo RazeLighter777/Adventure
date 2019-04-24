@@ -1,10 +1,9 @@
 package environment;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
-import lib.internalApi.Environment.Position;
-import lib.internalApi.Environment.SectionLink;
+import lib.internalApi.environment.Position;
+import lib.internalApi.environment.SectionLink;
 public abstract class RoomSection implements Serializable {
 
     public static final long serialVersionUID = 1;

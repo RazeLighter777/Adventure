@@ -1,9 +1,9 @@
 package api;
 
-import lib.internalApi.Controls.BinaryDesisionControl;
-import lib.internalApi.Controls.OptionControl;
-import lib.internalApi.Controls.QuantityControl;
-import lib.internalApi.Controls.StringControl;
+import lib.internalApi.controls.BinaryDesisionControl;
+import lib.internalApi.controls.OptionControl;
+import lib.internalApi.controls.QuantityControl;
+import lib.internalApi.controls.StringControl;
 
 public interface IController {
 

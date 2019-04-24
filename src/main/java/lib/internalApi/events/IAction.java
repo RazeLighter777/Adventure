@@ -1,4 +1,4 @@
-package lib.internalApi.Events;
+package lib.internalApi.events;
 
 public interface IAction {
 

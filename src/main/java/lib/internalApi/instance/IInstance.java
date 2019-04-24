@@ -1,4 +1,4 @@
-package lib.internalApi.Instance;
+package lib.internalApi.instance;
 
 import org.json.JSONObject;
 

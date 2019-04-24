@@ -1,4 +1,4 @@
-package lib.internalApi.Controls;
+package lib.internalApi.controls;
 
 import api.IController;
 

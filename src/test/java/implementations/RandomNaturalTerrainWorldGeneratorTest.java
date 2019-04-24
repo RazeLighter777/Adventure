@@ -2,7 +2,7 @@ package implementations;
 
 import core.Game;
 import core.World;
-import lib.internalApi.Environment.Point;
+import lib.internalApi.environment.Point;
 import org.junit.Test;
 
 public class RandomNaturalTerrainWorldGeneratorTest {

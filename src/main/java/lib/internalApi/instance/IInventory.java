@@ -1,4 +1,4 @@
-package lib.internalApi.Instance;
+package lib.internalApi.instance;
 
 import java.io.Serializable;
 import java.util.ArrayList;

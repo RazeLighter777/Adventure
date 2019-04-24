@@ -1,4 +1,4 @@
-package lib.internalApi.Resources;
+package lib.internalApi.resources;
 
 import core.Game;
 import org.json.JSONObject;

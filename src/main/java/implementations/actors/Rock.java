@@ -1,8 +1,7 @@
 package implementations.actors;
 
 import core.Game;
-import environment.IWorld;
-import lib.internalApi.Environment.Position;
+import lib.internalApi.environment.Position;
 import lib.templates.StaticActor;
 import org.json.JSONObject;
 
@@ -38,7 +37,7 @@ public class Rock extends StaticActor {
 
     @Override
     public String getDetailedDescription() {
-        return Game.getInstance().getStringManager().loadString("core.json", "RockDescription");
+        return Game.getInstance().getStringManager().loadString("core.json", "RockDD");
     }
 
     @Override
