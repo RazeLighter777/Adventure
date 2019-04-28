@@ -42,6 +42,7 @@ public class LaternaControllerTest {
             return;
         }
         LaternaController lc = new LaternaController(screen, null);
+        /*
         lc.alert("", "This is a test message");
 
         lc.resolve(new MultipleSelectionControl("Title", "Message", null, new ArrayList<Option>(Arrays.asList(new Option[]{new Option("Example2", "Derp"), new Option("Example", "other")}))) {
@@ -50,6 +51,7 @@ public class LaternaControllerTest {
                 return new Result(false, true, "df");
             }
         });
+        */
         try {
             term.close();
         } catch (IOException e) {
