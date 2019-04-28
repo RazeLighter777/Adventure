@@ -2,15 +2,27 @@ package lib.internalApi.controls;
 
 public class Result {
 
-    public boolean succuessful;
+    private boolean valid;
 
-    public boolean isFinal;
+    private boolean isFinal;
 
-    public String text;
+    private String text;
 
     public Result(boolean s, boolean f, String t) {
-        succuessful = s;
+        valid = s;
         isFinal = f;
         text = t;
+    }
+
+    public boolean isFinal() {
+        return isFinal;
+    }
+
+    public boolean isValid() {
+        return valid;
+    }
+
+    public String getText() {
+        return text;
     }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public abstract class OptionControl extends Control {
 
 
-    protected ArrayList<Option> options;
+    private ArrayList<Option> options;
 
     public OptionControl(String t, String d, IController ic, ArrayList<Option> ops) {
         super(t, d, ic);
@@ -20,4 +20,7 @@ public abstract class OptionControl extends Control {
     public abstract Result selectOption(int index);
 
 
+    public ArrayList<Option> getOptions() {
+        return options;
+    }
 }

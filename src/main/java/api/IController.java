@@ -44,7 +44,13 @@ public interface IController {
 
     void presentControls(Controls c);
 
-    void resolveControls(Controls c);
+    void resolve(BinaryDecisionControl bc);
+
+    void resolve(StringControl sc);
+
+    void resolve(OptionControl oc);
+
+    void resolve(MultipleSelectionControl msc);
 
 
 

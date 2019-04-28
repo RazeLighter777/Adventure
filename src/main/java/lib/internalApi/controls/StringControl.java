@@ -7,10 +7,15 @@ import api.IController;
  */
 public abstract class StringControl extends Control {
 
-    public StringControl(String t, String d, IController ic)  {
+    protected String regex;
+
+    public StringControl(String t, String d, String r, IController ic)  {
         super(d, t, ic);
     }
 
     public abstract Result select(String selection);
 
+    public String getRegex() {
+        return regex;
+    }
 }
