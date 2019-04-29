@@ -1,6 +1,11 @@
 package lib.dataStructures;
 
-public final class SNutrition {
+import java.io.Serializable;
+
+public final class SNutrition implements Serializable {
+
+    public static final long serialVersionUID = 1;
+
 
     public double fat;
 

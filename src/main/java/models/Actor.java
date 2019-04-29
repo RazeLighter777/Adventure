@@ -6,6 +6,7 @@ import java.util.Optional;
 import environment.IWorld;
 import lib.internalApi.environment.Position;
 import lib.internalApi.instance.PhysicalInstance;
+import lib.internalApi.stats.Stats;
 
 public abstract class Actor extends PhysicalInstance implements Serializable {
 
@@ -47,4 +48,10 @@ public abstract class Actor extends PhysicalInstance implements Serializable {
      * @return An item if the thing was picked up correctly
      */
     public abstract Optional<Item> pickUp();
+
+    /**
+     *
+     * @return the stats of the actor if it has them
+     */
+    public abstract Optional<Stats> getStats();
 }

@@ -5,6 +5,7 @@ import lib.dataStructures.SAttack;
 import lib.dataStructures.SThrow;
 import lib.internalApi.environment.Position;
 import lib.internalApi.instance.IInventory;
+import lib.internalApi.stats.Stats;
 import models.Actor;
 import models.Item;
 import org.json.JSONObject;
@@ -100,6 +101,11 @@ public abstract  class StaticActor extends Actor {
     @Override
     public void receiveDeletionRequest() {
 
+    }
+
+    @Override
+    public Optional<Stats> getStats() {
+        return Optional.empty();
     }
 
     @Override

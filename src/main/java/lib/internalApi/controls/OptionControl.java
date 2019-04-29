@@ -17,7 +17,7 @@ public abstract class OptionControl extends Control {
         options = ops;
     }
 
-    public abstract Result selectOption(int index);
+    public abstract Result select(int index);
 
 
     public ArrayList<Option> getOptions() {

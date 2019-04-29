@@ -11,7 +11,6 @@ import lib.internalApi.controls.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class LaternaController implements IController {
@@ -93,6 +92,31 @@ public class LaternaController implements IController {
 
     @Override
     public void resolve(OptionControl oc) {
+        RadioBoxList<String> radioBoxList = new RadioBoxList<>();
+        for (Option o : oc.getOptions()) {
+            radioBoxList.addItem(o.getTitle() + " : " + o.getDescription());
+        }
+        Window w = new BasicWindow();
+        Panel p = new Panel();
+        p.addComponent(new Label(oc.getTitle() + " : " + oc.getDescription()));
+        p.addComponent(new Button("OK", new Runnable() {
+            @Override
+            public void run() {
+                w.close();
+            }
+        }));
+        radioBoxList.addTo(p);
+        w.setComponent(p);
+        gui.addWindowAndWait(w);
+        for (int i = 0; i < oc.getOptions().size(); i++) {
+            if (radioBoxList.isChecked(i)) {
+                Result result = oc.select(i);
+                alert(oc.getTitle(), result.getText());
+                if (!result.isValid()) {
+                    resolve(oc);
+                }
+            }
+        }
 
     }
 
